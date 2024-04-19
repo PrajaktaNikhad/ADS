@@ -1,0 +1,302 @@
+1.Find GCD of two given number?
+package in;
+
+import java.util.Scanner;
+
+public class gcd {
+		static int findGcd(int num1, int num2){
+			if(num2 == 0)
+				return num1;
+			
+			return findGcd(num2, num1 % num2);
+		}
+		
+		public static void main(String[] args){
+			Scanner sc = new Scanner(System.in);
+			System.out.print("Enter num1");
+			int num1 = sc.nextInt();
+			
+			System.out.print("Enter num2");
+			int num2 = sc.nextInt();
+			
+			int gcd;
+			if(num1 > num2)
+				gcd = findGcd(num1, num2);
+			else
+				gcd = findGcd(num1, num2);
+			
+			System.out.println("GCD of " + num1 + " and " + num2 + " is: " +gcd);
+			sc.close();
+		}
+}
+
+Output:Enter num1 20
+Enter num2 30
+GCD of 20 and 30 is: 10
+
+2.Program to LCM of TWO given Numbers?
+import java.util.Scanner;
+
+public class LCM {
+
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+	System.out.print("Enter num1");
+	int num1 = sc.nextInt();
+	
+	System.out.print("Enter num2");
+	int num2 = sc.nextInt();
+	
+    int lcm = (num1 > num2) ? num1 : num2;
+    
+    while(true) {
+      if( lcm % num1 == 0 && lcm % num2 == 0 ) {
+        System.out.print("The LCM of "+ num1 + " and " + num2 + " is " + lcm);
+        break;
+      }
+      ++lcm;
+    }
+  }
+}
+
+Output: Enter num1 6
+Enter num2 15
+The LCM of 6 and 15 is 30
+
+3. Print all prime factors of given number?
+import java.util.*;
+class Primefactor {
+	public static void main(String[] args) {   
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Input a number: ");
+		int n = sc.nextInt();
+		if (n > 0) {	
+			while (n % 2 == 0) { 
+				System.out.println(2); 
+				n /= 2; 
+			}   
+			for (int i = 3; i <= Math.sqrt(n); i+= 2) { 
+				while (n % i == 0) { 
+					System.out.println(i); 
+					n /= i; 
+				} 
+			} 
+			if (n > 2) 
+				System.out.print(n); 
+		}
+	}
+}
+
+Output: Input a number: 15
+3
+5
+
+4.Check whether the given number is a Palindrome or Not.
+import java.util.*;
+public class Palindrome {
+	static int reverseNumber(int n){
+		int rev_n = 0;
+        while (n > 0) {
+            rev_n = rev_n * 10 + n % 10;
+            n = n / 10;
+        }
+        return rev_n;
+	}
+	public static void main(String [] args){
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter number: ");
+		int n = sc.nextInt();
+		//int n = 123464321;
+		int reverseNumber;
+        int reverseN = reverseNumber(n);
+        System.out.println("Reverse number = " + reverseN);
+ 
+        if (n == reverseN)
+            System.out.println("Palindrome = Yes");
+        else
+            System.out.println("Palindrome = No");
+	}
+}
+
+Output:Enter number:
+1236321
+Reverse number = 1236321
+Palindrome = Yes
+
+5.Write a program to check wheather the given number is Prime number or not?
+import java.util.*;
+
+public class Prime{
+	static boolean primeno(int n){
+        if (n <= 1)
+            return false;
+	
+         for (int i = 2; i < n; i++)
+			 if (n % i == 0)
+               return false;
+			   
+        return true;	
+    }
+	public static void main(String [] args){
+		if (primeno(11))
+			System.out.println("true");
+		else
+			System.out.println("false");
+	}
+}
+Output: true
+
+6. Write a program to check wheather the given number is Armstrong number or not?
+
+public class Armstrong {
+    public static void main(String[] args) {
+        int num = 370, number, temp, total = 0;
+        number = num;
+        while (number != 0)
+        {
+            temp = number % 10;
+            total = total + temp*temp*temp;
+            number /= 10;
+        }
+
+        if(total == num)
+            System.out.println(num + " is an Armstrong number");
+        else
+            System.out.println(num + " is not an Armstrong number");
+    }
+}
+
+Output:390 is not an Armstrong number
+
+7.write a java program to check whether the given number is perfect number or not?
+
+import java.util.Scanner;
+public class Perfect {
+    public static void main(String[] args) {
+        int n, sum = 0;
+        Scanner s = new Scanner(System.in);
+        System.out.print("Enter the number: ");
+        n = s.nextInt();
+        for(int i = 1; i < n; i++) {
+            if(n % i == 0) {
+			sum = sum + i;
+			}
+        }
+        if(sum == n)
+            System.out.println(n+" perfect number");
+        else
+            System.out.println(n+" not a perfect number"); 
+    }
+}
+
+Output: Enter the number: 9
+9 not a perfect number
+
+8. write a java program to check whether the given number is amicable number or not?
+
+import java.util.Scanner;  
+public class Amicable {  
+	public static void main (String args[]) {  
+		int firstDivSum = 0, secondDivSum = 0, firstNum, secondNum;   
+		Scanner sc = new Scanner(System.in);  
+		System.out.print("Enter first num: ");  
+		firstNum = sc.nextInt();  
+		System.out.print("Enter second number: ");  
+		secondNum = sc.nextInt();  
+		for(int i=1; i<firstNum; i++) {  
+			if(firstNum % i == 0) {  
+				firstDivSum = firstDivSum + i;  
+			}  
+		}  
+		
+		for(int i=1; i<secondNum; i++) {  
+			if(secondNum % i == 0) {        
+				secondDivSum = secondDivSum + i;  
+			}  
+		}  
+ 
+		if((firstNum == secondDivSum) && (secondNum == firstDivSum)) {  
+			System.out.println(firstNum+", "+ secondNum +" are amicable numbers.");  
+		}  
+		else {  
+			System.out.println(firstNum+", "+ secondNum +" are not amicable numbers.");  
+		}  
+	}  
+}  
+
+Output: Enter first num: 5020
+Enter second number: 5564
+5020, 5564 are amicable numbers.
+
+9. write a java program to check whether the given number is Ramanujam number or not?
+
+import java.util.Scanner;  
+
+public class Ramanujam
+ {  
+	public static void main(String args[]) {  
+		Scanner sc= new Scanner(System.in);  
+		System.out.print("Enter num "); 
+		int orgNum = sc.nextInt();  
+		int sum = findSum(orgNum);  
+		int revSum = revSum(sum);  
+		if( (sum * revSum) == orgNum)  
+			System.out.println(orgNum +" Ramanujan Number.");  
+		else  
+			System.out.println(orgNum+" not Ramanujan Number.");  
+	}  
+ 
+	public static int findSum(int n) {  
+		int sum = 0;  
+		while (n > 0) {  
+			sum = sum + n % 10;  
+			n = n / 10;  
+		}  
+		return sum;  
+	}  
+  
+	public static int revSum(int n) {  
+		int rev = 0;  
+		while (n > 0) {  
+			int digit = n % 10;  
+			rev = rev * 10 + digit;  
+			n = n / 10;  
+		}  
+		return rev;  
+	}  
+} 
+
+Output:Enter num 1428
+1428 not Ramanujan Number.
+
+10. write a java program to check whether the given number is Automorphic number or not?
+
+import java.util.*;
+ 
+class Automorphic { 
+  public static void main(String[] args) { 
+  Scanner sc= new Scanner (System.in); 
+  System.out.println("Enter number: ");
+  int num = sc.nextInt(); 
+  int sqr = num*num; 
+
+  if(automorphic(sqr,num))
+    System.out.println(num + " automorphic number"); 
+  else 
+    System.out.println(num + " not automorphic number"); 
+  }
+
+  static boolean automorphic(int s, int n){
+    while(n > 0){
+      if(s % 10 != n % 10)
+        return false;
+      s /= 10;
+      n /= 10;
+    }
+    return true;
+  }
+}
+
+Output: Enter number:
+25
+25 automorphic number

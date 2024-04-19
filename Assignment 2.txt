@@ -1,0 +1,276 @@
+1. Print 1 to n number withour using loops?
+
+import java.util.*;
+
+class Printrec {
+    static void display(int n)
+    {
+        if (n > 0) {
+            display(n - 1);
+            System.out.print(n + " ");
+        }
+        return;
+    }
+
+    public static void main(String[] args)
+    {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter number: ");
+		int n = sc.nextInt();
+	        display(n);
+    }
+}
+
+Output:Enter number:
+7
+1 2 3 4 5 6 7
+
+2. Sum of n natural number using recursion?
+
+import java.util.*; 
+
+class Sumrec { 
+	public static int sum(int n) { 
+		if (n <= 1) 
+			return n; 
+		return n + sum(n - 1); 
+	} 
+	
+	public static void main(String args[]) { 
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter number: ");
+		int n = sc.nextInt();
+		
+		System.out.println(sum(n)); 
+	} 
+} 
+
+Output: Enter number:
+5
+15
+
+3.Mean of Array using recurssion
+
+import java.util.*; 
+
+class Meanarr { 
+	static float mean(int arr[], int n) { 
+		if (n == 1) 
+			return (float) arr[n-1]; 
+		else
+			return ((float)(mean(arr, n-1)*(n-1) + arr[n-1]) / n); 
+	} 
+	public static void main (String[] args) { 
+		float Mean = 0; 
+		int arr[] = {1, 2, 3, 4, 5}; 
+		int n = arr.length;
+		System.out.println("array is: " + Arrays.toString(arr)); 
+		System.out.println("Mean of array is: " + mean(arr, n)); 
+	} 
+} 
+
+Output: array is: [1, 2, 3, 4, 5]
+Mean of array is: 3.0
+
+4.Sum of array elements using recursion
+
+import java.util.Scanner;
+public class Sumarr { 
+	static int sum(int A[], int N) 
+	{ 
+		if (N <= 0) 
+			return 0; 
+		return (sum(A, N - 1) + A[N - 1]); 
+	} 
+
+	public static void main(String[] args) 
+	{ 
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter size of array: ");
+        int arr_size = sc.nextInt();
+        int[] arr = new int[arr_size];
+        System.out.println("Enter elements: ");
+        for (int i = 0; i < arr_size; i++) {
+                arr[i] = sc.nextInt();
+		}
+        for (int i = 0; i < arr_size; i++) {
+            System.out.println("Array: " + arr[i]);
+        }
+		System.out.println("Sum of array: " + sum(arr, arr.length)); 
+	} 
+} 
+
+Output:Enter size of array:
+5
+Enter elements:
+1
+2
+3
+4
+5
+Array: 1
+Array: 2
+Array: 3
+Array: 4
+Array: 5
+Sum of array: 15
+
+5. Decimal to binary number using recursion
+
+import java.util.*;
+
+class Dectobin {
+	static int find(int deci_num){
+		if (deci_num == 0) 
+			return 0; 
+		else
+		return (deci_num % 2 + 10 * 
+				find(deci_num / 2));
+	}
+	public static void main(String args[]) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter number: ");
+		
+		int deci_num = sc.nextInt();
+		System.out.println("Decimal to binary: " + find(deci_num));
+	}
+}
+
+Output: Enter number:
+10
+Decimal to binary: 1010
+
+6. Sum of digit of a number using recursion
+
+import java.util.*;
+
+class Sumofdigit{
+	static int sum(int n){ 
+		if (n == 0)
+			return 0;
+		return (n % 10 + sum(n / 10));
+	}
+	public static void main(String args[]){
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter number: ");
+		int num = sc.nextInt();
+		int result = sum(num);
+		System.out.println("Sum of digits " + num + " is " + result);
+	}
+}
+
+Output: Enter number:
+12345
+Sum of digits 12345 is 15
+
+7. Print reverse of a string using recursion
+
+import java.util.*;
+
+class Revstring {
+	public static String reverse(String str, int len) {
+		if (len < 1) {
+			return "";
+		}
+		if (len == 1) {
+			return String.valueOf(str.charAt(0));
+		}
+		return str.charAt(len - 1) + reverse(str, len - 1);
+	}
+
+	public static void main(String[] args) {
+		String str = "Reverse to String";
+		System.out.println(reverse(str, str.length()));
+	}
+}
+
+Output:
+gnirtS ot esreveR
+
+8.Program for length of a string using recursion
+
+import java.util.*;
+
+public class lenofstring{
+	private static int len(String str) {
+		if (str.equals(""))
+			return 0;
+		else
+			return len(str.substring(1)) + 1;
+	}
+	public static void main(String[] args) {
+		String str ="Length of a String";
+		System.out.println(len(str));
+	}
+}
+
+Output: 18
+
+9. Tail recursion to calculate sum of array elements.
+
+class Tailsumarr {
+	static int sum(int []arr, int size, int sum){
+		if (size == 0) 
+			return sum;
+		return sum(arr, size - 1, sum + arr[size - 1]);
+	}
+	public static void main(String[] args){
+		int arr[] = { 5, 25, 4, 9 };
+		int size = arr.length;
+		System.out.print(sum(arr, size, 0));
+	}
+}
+
+Output: 43
+
+10. Recursive function to check if a string is palindrome
+
+import java.util.*;
+public class Palindrome {
+	static int reverseNumber(int n){
+		int rev_n = 0;
+        while (n > 0) {
+            rev_n = rev_n * 10 + n % 10;
+            n = n / 10;
+        }
+        return rev_n;
+	}
+	public static void main(String [] args){
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter number: ");
+		int n = sc.nextInt();
+		//int n = 123464321;
+		int reverseNumber;
+        int reverseN = reverseNumber(n);
+        System.out.println("Reverse number = " + reverseN);
+ 
+        if (n == reverseN)
+            System.out.println("Palindrome = Yes");
+        else
+            System.out.println("Palindrome = No");
+	}
+}
+
+Output:Enter number:
+123464321
+Reverse number = 123464321
+Palindrome = Yes
+
+11. Print Fibonacci Series in reverse order using Recursion
+
+public class Fibonacci{
+		static int fib(int n){
+			if (n<=1)
+				return n;
+			else
+				return fib(n-1)+fib(n-2);
+		}
+		public static void main (String [ ] args){
+			int num=10;
+			for (int i=0; i<=num; i++)
+				System.out.print(fib(i) + " ");
+		}
+}
+
+Output: 0 1 1 2 3 5 8 13 21 34 55
